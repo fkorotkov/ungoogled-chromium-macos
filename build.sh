@@ -25,8 +25,8 @@ cp "$_main_repo/flags.gn" "$_src_dir/out/Default/args.gn"
 cat "$_root_dir/flags.macos.gn" >> "$_src_dir/out/Default/args.gn"
 #Inject API Keys for Web/Extension Store at Build
 sed 's/google_api_key=""/google_api_key="AIzaSyCKhPs7c13je-yniPj0MalwqzSSdFOQggw"/g' "$_src_dir/out/Default/args.gn"
-sed 's/google_default_client_id=""/google_default_client_id="531045858063-me228smff1cv9dllepdrerpbeaouqkhn.apps.googleusercontent.com"/g' "_src_dir/out/Default/args.gn"
-sed 's/google_default_client_secret=""/google_default_client_secret="Dkci1fjLzb5NsE-nUp1Qw4Zj"/g' "_src_dir/out/Default/args.gn"
+sed 's/google_default_client_id=""/google_default_client_id="531045858063-me228smff1cv9dllepdrerpbeaouqkhn.apps.googleusercontent.com"/g' args.gn
+sed 's/google_default_client_secret=""/google_default_client_secret="Dkci1fjLzb5NsE-nUp1Qw4Zj"/g' args.gn
 
 cd "$_src_dir"
 
