@@ -23,9 +23,8 @@ mkdir -p "$_download_cache"
 "$_main_repo/utils/domain_substitution.py" apply -r "$_main_repo/domain_regex.list" -f "$_main_repo/domain_substitution.list" -c "$_root_dir/build/domsubcache.tar.gz" "$_src_dir"
 cp "$_main_repo/flags.gn" "$_src_dir/out/Default/args.gn"
 cat "$_root_dir/flags.macos.gn" >> "$_src_dir/out/Default/args.gn"
-#Inject API Keys for Web/Extension Store at Build
-sed -i'.bak' 's/google_api_key=""/google_api_key="AIzaSyCKhPs7c13je-yniPj0MalwqzSSdFOQggw"/; s/google_default_client_id=""/google_default_client_id="531045858063-me228smff1cv9dllepdrerpbeaouqkhn.apps.googleusercontent.com"/; s/google_default_client_secret=""/google_default_client_secret="Dkci1fjLzb5NsE-nUp1Qw4Zj"/' "$_src_dir/out/Default/args.gn"
-
+#API Key injection below. Disabled because it is included in base for all platforms
+#sed -i'.bak' 's/google_api_key=""/google_api_key="AIzaSyCKhPs7c13je-yniPj0MalwqzSSdFOQggw"/; s/google_default_client_id=""/google_default_client_id="531045858063-me228smff1cv9dllepdrerpbeaouqkhn.apps.googleusercontent.com"/; s/google_default_client_secret=""/google_default_client_secret="Dkci1fjLzb5NsE-nUp1Qw4Zj"/' "$_src_dir/out/Default/args.gn"
 cd "$_src_dir"
 
 ./tools/gn/bootstrap/bootstrap.py -o out/Default/gn --skip-generate-buildfiles
